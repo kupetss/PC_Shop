@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользователи магазина</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .user-list {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .user-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .user-item:last-child {
+            border-bottom: none;
+        }
+        .user-count {
+            color: #666;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-list">
+        <h1>Пользователи магазина</h1>
+        <div class="user-count">Всего пользователей: {{ users|length }}</div>
+        
+        <div class="users">
+            {% for user in users %}
+                <div class="user-item">
+                    👤 {{ user.username }}
+                </div>
+            {% empty %}
+                <div class="user-item">Пользователи не найдены</div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

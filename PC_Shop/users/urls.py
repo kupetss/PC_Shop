@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 
-app_name = 'users'  # products, users и т.д.
+app_name = 'users'
 
 urlpatterns = [
-    # Пока пусто - заполним на следующих этапах
+    path('', views.index, name='index'),
 ]

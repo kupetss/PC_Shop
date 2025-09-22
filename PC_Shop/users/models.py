@@ -9,3 +9,13 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    def get_order_count(self):
+        """Количество заказов пользователя"""
+        return self.order_set.count()
+
+    def get_total_spent(self):
+        """Общая сумма покупок пользователя"""
+        from django.db.models import Sum
+        result = self.order_set.aggregate(total=Sum('total_price'))
+        return result['total'] or 0
