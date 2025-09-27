@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: Montserrat;
+  font-size: 16px;
+}
+body .wrapper {
+  max-width: 1310px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a {
+  cursor: pointer;
+}
+
+section {
+  margin-bottom: 150px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 480px) {
+  section {
+    margin-bottom: 60px;
+  }
+}
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+header {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
+  position: relative;
+  background: white;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+header a {
+  color: #000;
+  transition: color 0.3s ease;
+}
+header nav {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+header nav .menu-item {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  padding: 5px 0;
+}
+header nav .menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3b65b3;
+  transition: width 0.3s ease;
+}
+header nav .menu-item:hover::after {
+  width: 100%;
+}
+header nav .menu-item a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+header nav .menu-item a:hover {
+  transform: translateY(-3px);
+}
+header nav .header-btn {
+  padding: 10px 25px;
+  border: 2px solid #000;
+  border-radius: 35px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+header nav .header-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(112, 87, 219, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+header nav .header-btn:hover {
+  background-color: #3b65b3;
+  border: 1px solid #3b65b3;
+  color: white;
+  box-shadow: 0 5px 15px rgba(112, 87, 219, 0.2);
+  transform: translateY(-2px);
+}
+header nav .header-btn:hover::before {
+  left: 100%;
+}
+header nav .header-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .menu-item a {
+    font-size: 16px;
+  }
+  .menu-item a:hover {
+    transform: none;
+  }
+  header nav .header-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  header {
+    margin-bottom: 60px;
+  }
+  header nav .menu {
+    display: none;
+  }
+  header nav .menu-item::after {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
