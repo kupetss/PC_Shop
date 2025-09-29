@@ -93,7 +93,6 @@ class ProductAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = [ProductImageInline]
     
-    # Поля для отображения в форме редактирования
     fieldsets = [
         ('Основная информация', {
             'fields': [
@@ -124,9 +123,6 @@ class ProductAdmin(admin.ModelAdmin):
             'classes': ['collapse']
         }),
     ]
-    
-    # Действия для массового редактирования
-    actions = ['make_available', 'make_unavailable', 'increase_price_10_percent']
     
     def make_available(self, request, queryset):
         updated = queryset.update(available=True)
@@ -175,24 +171,19 @@ class ProductAdmin(admin.ModelAdmin):
         return "Главное изображение не установлено"
     main_image_preview.short_description = "Предпросмотр главного изображения"
     
-    # Сохранение модели с дополнительной логикой
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        # Если у товара нет изображений с is_main=True, устанавливаем первое как главное
         if not obj.images.filter(is_main=True).exists():
             first_image = obj.images.first()
             if first_image:
                 first_image.is_main = True
                 first_image.save()
     
-    # Настройка отображения списка товаров
     list_per_page = 50
     
-    # Быстрый фильтр вверху страницы
     def get_queryset(self, request):
         return super().get_queryset(request).select_related('category', 'brand').prefetch_related('images')
 
-# Регистрация моделей
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Brand, BrandAdmin)
 admin.site.register(Product, ProductAdmin)
