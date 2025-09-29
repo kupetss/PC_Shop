@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+#  os.path.exists(BASE_DIR / 'templates' / 'base.html'))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -135,3 +135,9 @@ os.makedirs(BASE_DIR / 'static', exist_ok=True)
 os.makedirs(BASE_DIR / 'media', exist_ok=True)
 os.makedirs(BASE_DIR / 'staticfiles', exist_ok=True)
 os.makedirs(BASE_DIR / 'templates', exist_ok=True)
+
+print("=== DEBUG TEMPLATES ===")
+print("TEMPLATES DIRS:", [str(path) for path in TEMPLATES[0]['DIRS']])
+print("BASE_DIR:", BASE_DIR)
+print("Templates exists:", os.path.exists(BASE_DIR / 'templates'))
+print("Base.html exists:", os.path.exists(BASE_DIR / 'templates' / 'base.html'))
