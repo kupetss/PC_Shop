@@ -167,7 +167,7 @@ header nav .menu-item a:hover {
 header nav .header-btn {
   padding: 10px 25px;
   border: 2px solid #000;
-  border-radius: 35px;
+  border-radius: 12px;
   color: #000;
   font-size: 16px;
   font-weight: 600;
@@ -433,4 +433,45 @@ header nav .header-btn:active {
     max-width: 250px;
     text-align: center;
   }
+}
+.about-text__container {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.about-title {
+  margin-bottom: 20px;
+  font-size: 38px;
+  font-weight: 650;
+}
+.about-text {
+  font-size: 18px;
+  color: #2d2d2d;
+}
+.about-card__container {
+  display: flex;
+  justify-content: space-between;
+}
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 300px;
+}
+.about-icon__container {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: rgba(130, 186, 255, 0.5764705882);
+  margin-bottom: 20px;
+}
+.about-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.about .card-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2d2d2d;
 }/*# sourceMappingURL=main.css.map */
