@@ -12,6 +12,5 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
 ]
 
-# Для обслуживания медиафайлов во время разработки
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

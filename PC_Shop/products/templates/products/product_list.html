@@ -1,8 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Каталог товаров</h1>
-{% for product in products %}
-    <div>{{ product.name }} - {{ product.price }} ₽</div>
-{% endfor %}
+<div class="container mt-4">
+    <h1 class="mb-4">Каталог товаров</h1>
+    
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow border" style="border-radius: 10px;">
+                <div class="card-body">
+                    <h6 class="card-title">{{ product.name }}</h6>
+                    <p class="card-text text-muted small">{{ product.brand.name }}</p>
+                    <div class="mb-2">
+                        <span class="h5 text-primary">{{ product.price }} ₽</span>
+                    </div>
+                    {% if product.available %}
+                    <span class="badge bg-success">В наличии</span>
+                    {% else %}
+                    <span class="badge bg-danger">Нет в наличии</span>
+                    {% endif %}
+                </div>
+                <div class="card-footer bg-white border-top">
+                    <a href="{% url 'products:product_detail' product.pk product.slug %}" 
+                       class="btn btn-outline-primary btn-sm w-100" style="border-radius: 6px;">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="text-center py-5">
+                <h4>Товары не найдены</h4>
+                <p class="text-muted">Добавьте товары через админ-панель</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

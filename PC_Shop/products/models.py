@@ -6,8 +6,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name='URL')
     description = models.TextField(blank=True, verbose_name='Описание')
     image = models.ImageField(upload_to='categories/', blank=True, null=True, verbose_name='Изображение')
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, 
-                              related_name='children', verbose_name='Родительская категория')
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', verbose_name='Родительская категория')
     
     class Meta:
         db_table = 'categories'

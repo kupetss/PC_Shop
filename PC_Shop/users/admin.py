@@ -4,12 +4,12 @@ from django.utils.html import format_html
 from django.urls import reverse
 from django.utils.http import urlencode
 from .models import User
-from orders.models import Order  # ✅ Импортируем модель Order
+from orders.models import Order
 
 class PurchaseHistoryInline(admin.StackedInline):
     """Inline для отображения истории покупок"""
-    model = Order  # ✅ Прямое указание модели
-    fk_name = 'user'  # ✅ Указываем поле связи, если оно не 'user'
+    model = Order
+    fk_name = 'user'
     extra = 0
     max_num = 15
     can_delete = False
@@ -45,7 +45,6 @@ class CustomUserAdmin(UserAdmin):
     readonly_fields = ['order_count', 'total_spent_display', 'date_joined', 'last_login']
     ordering = ['-date_joined']
     
-    # Максимально упрощенные fieldsets
     fieldsets = (
         (None, {
             'fields': ('username', 'password')
@@ -94,7 +93,6 @@ class CustomUserAdmin(UserAdmin):
         return obj.date_joined.strftime('%d.%m.%Y')
     date_joined_short.short_description = 'Регистрация'
 
-    # Убираем лишние actions
     def get_actions(self, request):
         actions = super().get_actions(request)
         if 'delete_selected' in actions:
